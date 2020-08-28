@@ -1,0 +1,13 @@
+name: CI
+on: push
+jobs:
+  build:
+    runs-on: ${{matrix.runs-on}}
+    strategy:
+      fail-fast: false
+      matrix:
+        runs-on: [macOS-latest, windows-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - name: try msbuild
+        run: msbuild -version
