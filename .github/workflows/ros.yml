@@ -15,6 +15,6 @@ jobs:
       - uses: ros-tooling/setup-ros@master
       - uses: ros-tooling/action-ros-ci@master
         with:
-          package-name: ament_copyright
+          package-name: ament_copyright launch
           target-ros2-distro: foxy
           
