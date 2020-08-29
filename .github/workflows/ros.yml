@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/setup-python@v2
         with:
-          python-version: ${{matrix.python-version}
+          python-version: ${{matrix.python-version}}
       - uses: ros-tooling/setup-ros@master
       - uses: ros-tooling/action-ros-ci@master
         with:
