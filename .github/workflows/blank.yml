@@ -6,8 +6,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runs-on: [macOS-latest, windows-latest, ubuntu-latest]
+        runs-on: [ubuntu-latest]
+        python-version: [3.6, 3.8, pypy3]
     steps:
-      - uses: actions/checkout@v2
-      - name: try msbuild
-        run: msbuild -version
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{matrix.python-version}
+      - uses: ros-tooling/setup-ros@master
+      - uses: ros-tooling/action-ros-ci@master
+        with:
+          package-name: ament_copyright
+          target-ros2-distro: foxy
